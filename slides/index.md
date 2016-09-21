@@ -56,6 +56,7 @@ http://theimowski.com/
 * Review the level of knowledge at the beginning of working on the transform
 * Share how the approach advanced while developing the transform
 * Note that we didn't stick to the conventional approach
+* I'm not an expert
 
 ***
 '   - data-background : images/profit.jpg
@@ -75,49 +76,61 @@ http://theimowski.com/
 * Present numbers: 
     * lines of XSLT code, 
     * total reports rendered in Phoenix, 
-    * total number of pages of all reports
+    * total number of pages of all reports,
+    * other counters?
 * ? Mention full migration of IHS CMS that was hard to maintain
-
-***
-'   - data-background : images/flaws.jpeg
-'   
-'   <h2>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Dangers</h2>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-'   </br>
-
-## Dangers
-
-* Terse XML syntax
-* Complex instructions
-* Template matching conflicts
-* Issue diagnostics, debugging
-* Saxon's monopoly
 
 ***
 '   - data-background : images/practice.jpg
 '   
 '   ## Practice
+'   
+'   ---
 
 ## Practice
 
-* Influence of functional programming paradigm
-* *"Implicit vs explicit"* processing
-* Features in new versions of XSLT
+### Template matching conflicts
+### "Implicit vs explicit" processing
+
+---
+
+## Practice
+
+### Forcing imperative approach
+### Functional programming paradigm
+
+---
+
+## Practice
+
+### Complex instructions
+### Features in new versions of XSLT
+
 * The power of XPath expressions
 * Static Typing capabilities
+* Utilize functions
 * "Group by" capabilities
-* Point out advantages of XML syntax
-* Best practices
+
+---
+
+## Practice
+
+### Terse XML syntax
+### Point out advantages of XML syntax
+
+---
+
+## Practice
+
+### Saxon's monopoly
+### Supplements for free-version processor
+
+---
+
+## Practice
+
+### Difficult diagnostics
+### Debugging, profiling
 
 ***
 '   - data-background : images/recap.jpg
