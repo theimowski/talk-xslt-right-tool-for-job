@@ -49,14 +49,145 @@
         
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="images/hammer.jpg">
+            <section data-background="images/screwer.jpg">
 <h1>XSLT</h1>
 <h2>Use the Right Tool for the Job</h2>
+</br>
+</br>
 </br>
 <h3>Tomasz Heimowski</h3>
 <p><a href="http://theimowski.com/">http://theimowski.com/</a></p>
 <p>@theimowski</p>
 <p><img src="images/ihsmarkit.svg" alt="ihsmarkit" /></p>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/intent.jpeg<br/>
+  <br/>
+  ## Intent<br/>
+  </br><br/>
+  <br/>
+  ---<br/>
+</aside>
+<h2>Intent</h2>
+<ul>
+<li>We often express reluctance for specific technology, avoid it and try different solutions, while we could have used a dedicated tool (technology) in a proper manner to tackle the problem efficiently.</li>
+<li>This is not supposed to be a strictly technical talk, but I'd also like to send a message that we should be more open and reach for right tools when needed.</li>
+<li>To do so I'd like to share our success story with XSLT in PDF component in Phoenix, plus show a couple of tips &amp; tricks while working with XSLT.</li>
+</ul>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/context2.jpg<br/>
+  <br/>
+  <h2>&emsp;&emsp;&emsp;Context</h2><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  <br/>
+  ---<br/>
+</aside>
+<h2>Context</h2>
+<ul>
+<li>Show what we do in Phoenix project</li>
+<li>Describe digital publishing and explain the importance of its automation in IHS</li>
+<li>Present big picture of PDF publishing architecture in Phoenix</li>
+<li>Highlight the XSLT building block in PDF rendition flow</li>
+<li>Review the level of knowledge at the beginning of working on the transform</li>
+<li>Share how the approach advanced while developing the transform</li>
+<li>Note that we didn't stick to the conventional approach</li>
+</ul>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/profit.jpg<br/>
+  <br/>
+  ## Profit<br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  <br/>
+  ---<br/>
+</aside>
+<h2>Profit</h2>
+<ul>
+<li>Boost the progress</li>
+<li>Show examples of rendered PDF reports</li>
+<li>Explain the complexity of transform by listing all possible rendition templates, layouts, options and modes</li>
+<li>
+Present numbers:
+<ul>
+<li>lines of XSLT code,</li>
+<li>total reports rendered in Phoenix,</li>
+<li>total number of pages of all reports</li>
+</ul>
+</li>
+<li>? Mention full migration of IHS CMS that was hard to maintain</li>
+</ul>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/flaws.jpeg<br/>
+  <br/>
+  <h2>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Dangers</h2><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+  </br><br/>
+</aside>
+<h2>Dangers</h2>
+<ul>
+<li>Terse XML syntax</li>
+<li>Complex instructions</li>
+<li>Template matching conflicts</li>
+<li>Issue diagnostics, debugging</li>
+<li>Saxon's monopoly</li>
+</ul>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/practice.jpg<br/>
+  <br/>
+  ## Practice<br/>
+</aside>
+<h2>Practice</h2>
+<ul>
+<li>Influence of functional programming paradigm</li>
+<li><em>"Implicit vs explicit"</em> processing</li>
+<li>Features in new versions of XSLT</li>
+<li>The power of XPath expressions</li>
+<li>Static Typing capabilities</li>
+<li>"Group by" capabilities</li>
+<li>Point out advantages of XML syntax</li>
+<li>Best practices</li>
+</ul>
+</section>
+<section >
+<aside class="notes">
+  - data-background : images/recap.jpg<br/>
+  <br/>
+  <h2 style="color: white">&nbsp;&nbsp;Recap</h2><br/>
+  <br/>
+  ---<br/>
+</aside>
+<h2>Recap</h2>
+<ul>
+<li>lessons learned</li>
+<li>the very purpose of XSLT is to transform XML documents</li>
+<li>One can handle XSLT to use it without big pain</li>
+<li>It's not just about XSLT</li>
+<li>We don't have to avoid unknown tools / technologies</li>
+<li>We can discover interesting ways of using these tools to improve our process</li>
+<li>In the end what really matters is the final result that has business value</li>
+</ul>
 </section>
 
 
@@ -76,7 +207,7 @@
             history: true,
             center: true,
 
-            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+            transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
 
             // Parallax scrolling
             // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
