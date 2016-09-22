@@ -81,16 +81,31 @@ http://theimowski.com/
 * ? Mention full migration of IHS CMS that was hard to maintain
 
 ***
-'   - data-background : images/practice.jpg
-'   
-'   ## Practice
-'   
-'   ---
+- data-background : images/practice.jpg
+
+## Practice
+
+' technical stuff
+' biggest pains?
+' for each pain -> solution
+
+---
 
 ## Practice
 
 ### Template matching conflicts
 ### "Implicit vs explicit" processing
+
+<small>
+Conventional approach is to define multiple templates matching a pattern and rely on "apply-templates" instruction.
+However when a transform gets bigger and bigger it's hard to reason about those templates directly.
+Specially when the schemes of transform's input and output differ a lot.
+In addition one might get template matching conflicts which are not always easy to resolve - priorities.
+Example - maybe just show and explain both approaches, not necessarily dive into complex examples.
+First show the implicit approach, explain potential pains, and then show explicit approach and how it solves those problems.
+Example domain - focus on transforming Dita XML to Modifier XML.
+Explicit = named templates but also functions.
+</small>
 
 ---
 
@@ -99,17 +114,63 @@ http://theimowski.com/
 ### Forcing imperative approach
 ### Functional programming paradigm
 
+<small>
+
+Merge with complex instructions?
+
+immutable
+recursion
+functions
+purity
+
+
+</small>
+
 ---
 
 ## Practice
 
 ### Complex instructions
-### Features in new versions of XSLT
+### FUNCTIONAL Features in new versions of XSLT
 
+* Functional stuff here?
+* Utilize functions - come back to explicit processing
 * The power of XPath expressions
+
 * Static Typing capabilities
-* Utilize functions
 * "Group by" capabilities
+
+---
+
+#### Functional query
+
+* list bind
+* list filter
+* list map
+* list reduce
+* arrow operator
+* let bindings
+* mapping operator !
+
+    [lang=xml]
+    <body>
+        
+    </body>
+
+---
+
+#### Example
+
+    [lang=xml]
+    <xsl:when test="
+                    $masterreference = '2ColMain' and
+                    (some  $e in current-group() satisfies  ihs:isObject($e)) and
+                    (every $e in current-group() satisfies
+                        (ihs:isObject($e) and ihs:layout($e) = 'Full width') or
+                        (ihs:isObject($e) and ihs:layout($e) = 'Grouped') or
+                        ihs:isHeading($e))">1ColMain</xsl:when>
+
+or a similar one?
 
 ---
 
@@ -118,12 +179,8 @@ http://theimowski.com/
 ### Terse XML syntax
 ### Point out advantages of XML syntax
 
----
-
-## Practice
-
-### Saxon's monopoly
-### Supplements for free-version processor
+* return plain XML
+* describe data in declarative way
 
 ---
 
@@ -131,6 +188,22 @@ http://theimowski.com/
 
 ### Difficult diagnostics
 ### Debugging, profiling
+
+---
+
+## Practice
+
+### Poor tooling
+### Editor extensions?
+
+---
+
+## Practice
+
+### Saxon's monopoly
+### Supplements for free-version processor
+
+* higher-order functions only in Saxon PE :(
 
 ***
 '   - data-background : images/recap.jpg
