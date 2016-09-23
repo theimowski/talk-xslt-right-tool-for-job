@@ -4,3 +4,4 @@ nuget FsReveal
 nuget FAKE
 nuget Suave
 nuget Saxon-HE
+nuget FSharp.Formatting

@@ -1,0 +1,5 @@
+<invoice>
+    <product sku="001" price="12.50" quantity="2" />
+    <product sku="002" price="10.00" quantity="2" />
+    <product sku="003" price="35.00" quantity="3" />
+</invoice>

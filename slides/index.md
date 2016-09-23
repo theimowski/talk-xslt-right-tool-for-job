@@ -85,8 +85,8 @@ http://theimowski.com/
 
 ## Practice
 
-' technical stuff
 ' biggest pains?
+' technical stuff
 ' for each pain -> solution
 
 ---
@@ -111,66 +111,132 @@ Explicit = named templates but also functions.
 
 ## Practice
 
-### Forcing imperative approach
-### Functional programming paradigm
-
-<small>
-
-Merge with complex instructions?
-
-immutable
-recursion
-functions
-purity
-
-
-</small>
-
----
-
-## Practice
-
 ### Complex instructions
-### FUNCTIONAL Features in new versions of XSLT
+### Functional stuff in new XSLT
 
-* Functional stuff here?
+* XPath power
 * Utilize functions - come back to explicit processing
-* The power of XPath expressions
 
 * Static Typing capabilities
 * "Group by" capabilities
 
 ---
 
-#### Functional query
+### XPath power
+#### Inovice sum
 
-* list bind
-* list filter
-* list map
-* list reduce
-* arrow operator
-* let bindings
-* mapping operator !
+Input
 
     [lang=xml]
-    <body>
-        
-    </body>
+    <invoice>
+      <product sku="001" price="12.50" quantity="2" />
+      <product sku="002" price="10.00" quantity="2" />
+      <product sku="003" price="35.00" quantity="3" />
+    </invoice>
+
+Expected output
+
+    [lang=xml]
+    150
 
 ---
 
-#### Example
+#### Inovice sum - XSLT 1.0 with recursion
 
-    [lang=xml]
-    <xsl:when test="
-                    $masterreference = '2ColMain' and
-                    (some  $e in current-group() satisfies  ihs:isObject($e)) and
-                    (every $e in current-group() satisfies
-                        (ihs:isObject($e) and ihs:layout($e) = 'Full width') or
-                        (ihs:isObject($e) and ihs:layout($e) = 'Grouped') or
-                        ihs:isHeading($e))">1ColMain</xsl:when>
+    [lang=xslt]
+    <xsl:template match="/invoice">
+      <xsl:call-template name="sum">
+        <xsl:with-param name="products" select="product" />
+      </xsl:call-template>
+    </xsl:template>
+    <xsl:template name="sum">
+      <xsl:param name="products" />
+      <xsl:param name="acc" select="0" />
+      <xsl:choose>
+        <xsl:when test="not($products)">
+          <xsl:value-of select="$acc" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="price" select="$products[1]/@price" />
+          <xsl:variable name="quantity" select="$products[1]/@quantity" />
+          <xsl:call-template name="sum">
+            <xsl:with-param name="products" select="$products[position() > 1]" />
+            <xsl:with-param name="acc" select="$acc + ($quantity * $price)" />
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:template>
 
-or a similar one?
+---
+
+#### Inovice sum - C# with recursion
+
+    [lang=csharp]
+    public static string Transform(XDocument xdoc)
+    {
+        return Sum(xdoc.Root.Elements("product"));
+    }
+
+    private static string Sum(IEnumerable<XElement> elements, decimal acc = 0)
+    {
+        if (elements.Any() == false)
+        {
+            return acc.ToString();
+        }
+        else
+        {
+            var product = elements.ElementAt(0);
+            var price = decimal.Parse(product.Attribute("price").Value);
+            var quantity = decimal.Parse(product.Attribute("quantity").Value);
+            return Sum(elements.Skip(1), acc + price*quantity);
+        }
+    }
+
+---
+
+#### Invoice sum - C# LINQ expression
+
+    [lang=csharp]
+    public static string Transform(XDocument xdoc)
+    {
+        return
+            xdoc.Root.Elements("product")
+                .Select(product => 
+                            decimal.Parse(product.Attribute("price").Value) * 
+                            decimal.Parse(product.Attribute("quantity").Value))
+                .Sum()
+                .ToString();
+    }
+
+---
+
+#### Inovice sum - XSLT 3.0 with XPath 3.1
+
+    [lang=xslt]
+    <xsl:template match="/invoice">
+      <xsl:value-of select="product!(@price * @quantity) => sum()"/>
+    </xsl:template>
+
+---
+
+### XPath power
+#### XPath 3.1 features
+
+* expressions: conditional, quantified, logic, operations, etc...
+* list bind
+* mapping - ! operator
+* filtering
+* aggregation functions
+* arrow operator
+* let bindings
+* function calls
+
+---
+
+### Functions
+#### Wut
+
+Applied template -> Named template -> Function
 
 ---
 
