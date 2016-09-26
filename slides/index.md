@@ -109,16 +109,17 @@ Explicit = named templates but also functions.
 
 ---
 
-## Practice
+- data-background : images/complex_instructions.jpg
 
-### Complex instructions
-### Functional stuff in new XSLT
+---
+
+### Pessimist: Complex instructions
+### Optimist: Functional stuff in new XSLT
 
 * XPath power
 * Utilize functions - come back to explicit processing
-
 * Static Typing capabilities
-* "Group by" capabilities
+* "Group by" capabilities - optionally
 
 ---
 
@@ -143,7 +144,7 @@ Expected output
 
 #### Inovice sum - XSLT 1.0 with recursion
 
-    [lang=xslt]
+    [lang=xml]
     <xsl:template match="/invoice">
       <xsl:call-template name="sum">
         <xsl:with-param name="products" select="product" />
@@ -212,7 +213,7 @@ Expected output
 
 #### Inovice sum - XSLT 3.0 with XPath 3.1
 
-    [lang=xslt]
+    [lang=xml]
     <xsl:template match="/invoice">
       <xsl:value-of select="product!(@price * @quantity) => sum()"/>
     </xsl:template>
@@ -222,7 +223,7 @@ Expected output
 ### XPath power
 #### XPath 3.1 features
 
-* expressions: conditional, quantified, logic, operations, etc...
+* expressions: conditional, quantified, logic, etc...
 * list bind
 * mapping - ! operator
 * filtering
@@ -234,26 +235,221 @@ Expected output
 ---
 
 ### Functions
-#### Wut
+#### Finding most expensive product
 
-Applied template -> Named template -> Function
+Input
+
+    [lang=xml]
+    <invoice>
+      <product sku="001" price="12.50" quantity="2" />
+      <product sku="002" price="10.00" quantity="2" />
+      <product sku="003" price="35.00" quantity="3" />
+    </invoice>
+
+Expected output
+
+    [lang=xml]
+    <product sku="003" price="35.00" quantity="3" />
+
+---
+
+#### Finding most expensive product - named template
+
+    [lang=xml]
+    <xsl:template match="/invoice">
+      <xsl:call-template name="maxByPrice">
+          <xsl:with-param name="products" select="product" />
+      </xsl:call-template>
+    </xsl:template>
+    <xsl:template name="maxByPrice">
+      <xsl:param name="products" />
+      <xsl:copy-of select="$products[@price = max($products/@price)]" />
+    </xsl:template>
+
+---
+
+#### Finding most expensive product - function
+
+    [lang=xml]
+    <xsl:template match="/invoice">
+      <xsl:copy-of select="my:maxByPrice(product)" />
+    </xsl:template>
+    <xsl:function name="my:maxByPrice">
+      <xsl:param name="products" />
+      <xsl:copy-of select="$products[@price = max($products/@price)]" />
+    </xsl:function>
+
+---
+
+#### XSLT Functions
+
+* More concise syntax
+* Can be used in XPath expressions
+* Isolated - no implicit context nodes
+
+---
+
+### Static Typing
+
+    [lang=xml]
+    <xsl:template match="/invoice">
+      <xsl:copy-of select="my:maxByPrice(.)" />
+    </xsl:template>
+    <xsl:function as="element(product)" name="my:maxPrice">
+      <xsl:param as="element(product)+" name="products" />
+      <xsl:copy-of select="$products[@price = max($products/@price)]" />
+    </xsl:function>
+
+Static Error
+
+    [lang=plaintext]
+    Static error in {my:maxByPrice(.)} in expression in
+    xsl:copy-of/@select on line 6 column 46 of static_typing.xslt:
+        XPST0017: Cannot find a matching 1-argument function 
+        named {http://example.com}maxByPrice()
+
+---
+
+- data-background : images/tree.jpg
+
+---
+
+### Pessimist: Terse XML syntax
+### Optimist: There are pros of XML syntax
+
+---
+
+### XML syntax
+#### Applying discounts
+
+Input
+
+    [lang=xml]
+    <invoice>
+      <product sku="001" price="12.50" quantity="2" />
+      <product sku="002" price="10.00" quantity="2" />
+      <product sku="003" price="35.00" quantity="3" />
+    </invoice>
+
+* Get 30% discount for product with "002" sku
+* Buy 3 for 2 products with "003" sku
+
+Expected output
+
+    [lang=xml]
+    109
+
+---
+
+### Applying discounts
+
+    [lang=xml]
+    <xsl:variable as="element(discount)+" name="discounts">
+      <discount type="percent" sku="002" percent="30" />
+      <discount type="XforY" sku="003" x="3" y="2" />
+    </xsl:variable>
+    
+    <xsl:template match="/invoice">
+      <xsl:copy-of select="my:applyDiscounts(product)" />
+    </xsl:template>
+    
+    <xsl:function as="xs:double" name="my:applyDiscounts">
+      <xsl:param as="element(product)+" name="products" />
+      <xsl:copy-of select="$products!my:applyDiscount(.) => sum()" />
+    </xsl:function>
+
+
+* Declarative nature of XML
+* Return plain XML
+
+---
+
+### Applying discounts
+
+    [lang=xml]
+    <xsl:function as="xs:double" name="my:applyDiscount">
+      <xsl:param as="element(product)" name="product" /> 
+      <xsl:copy-of select="
+        let $discount := $discounts[@sku = $product/@sku],
+            $price    := $product/@price,
+            $quantity := $product/@quantity
+        return
+            if ($discount/@type = 'percent') then 
+                (100 - $discount/@percent) div 100 * $price * $quantity
+            else if ($discount/@type = 'XforY') then
+                let $discounted := $quantity div $discount/@x,
+                    $remaining  := $quantity mod $discount/@x
+                return
+                    $discounted * $price * $discount/@y + 
+                    $remaining  * $price
+            else
+                $price * $quantity" />
+    </xsl:function>
+
+---
+
+- data-background : images/diagnostics.jpg
+
+---
+
+    [lang=xml]
+    <xsl:function name="my:debug">
+      <xsl:param name="msg" />
+      <xsl:param name="x" />
+      <xsl:message><xsl:value-of select="concat($msg, ': ', $x)"/></xsl:message>
+      <xsl:copy-of select="$x" />
+    </xsl:function>
+    
+---
+
+    [lang=xml]
+    <xsl:function as="xs:double" name="my:applyDiscount">
+      <xsl:param as="element(product)" name="product" /> 
+      <xsl:message>--- sku: <xsl:value-of select="$product/@sku"/></xsl:message>
+      <xsl:copy-of select="
+        let $discount := my:debug('discount', $discounts[@sku = $product/@sku]),
+          $price    := my:debug('price', $product/@price),
+          $quantity := my:debug('quantity', $product/@quantity)
+        return
+          if ($discount/@type = 'percent') then 
+            (100 - $discount/@percent) div 100 * $price * $quantity
+          else if ($discount/@type = 'XforY') then
+            let $discounted := $quantity div $discount/@x,
+              $remaining  := $quantity mod $discount/@x
+            return
+              $discounted * $price * $discount/@y + 
+              $remaining  * $price
+          else
+            $price * $quantity" />
+    </xsl:function>
+
+---
+
+    [lang=xml]
+    --- sku: 001
+    discount:
+    price: <?attribute name="price" value="12.50"?>
+    quantity: <?attribute name="quantity" value="2"?>
+    --- sku: 002
+    discount: <discount xmlns:my="http://example.com" type="percent" sku="002" percent="30"/>
+    price: <?attribute name="price" value="10.00"?>
+    quantity: <?attribute name="quantity" value="2"?>
+    --- sku: 003
+    discount: <discount xmlns:my="http://example.com" type="XforY" sku="003" x="3" y="2"/>
+    quantity: <?attribute name="quantity" value="3"?>
+    price: <?attribute name="price" value="35.00"?>
+
 
 ---
 
 ## Practice
 
-### Terse XML syntax
-### Point out advantages of XML syntax
-
-* return plain XML
-* describe data in declarative way
+### Pessimist: XSLT is Hard to diagnose
+### Optimist: With FP I hardly need to debug. Also I can profile
 
 ---
 
-## Practice
-
-### Difficult diagnostics
-### Debugging, profiling
+#### Debugging
 
 ---
 
