@@ -5,17 +5,16 @@
 - transition : slide
 
 ***
-- data-background : images/screwer.jpg
+- data-background : images/wrench.jpg
 
 
 # XSLT
-## Use the Right Tool for the Job
+### Use the Right Tool for the Job
 
 </br>
 </br>
 </br>
-
-### Tomasz Heimowski
+</br>
 
 http://theimowski.com/
 
@@ -24,12 +23,12 @@ http://theimowski.com/
 ![ihsmarkit](images/ihsmarkit.svg)
 
 ***
-'   - data-background : images/intent.jpeg
-'   
-'   ## Intent
-'   </br>
-'   
-'   ---
+- data-background : images/intent.jpeg
+
+## Intent
+</br>
+
+---
 
 ## Intent
 
@@ -38,14 +37,14 @@ http://theimowski.com/
 * To do so I'd like to share our success story with XSLT in PDF component in Phoenix, plus show a couple of tips & tricks while working with XSLT.
 
 ***
-'   - data-background : images/context2.jpg
-'   
-'   <h2>&emsp;&emsp;&emsp;Context</h2>
-'   </br>
-'   </br>
-'   </br>
-'   
-'   ---
+- data-background : images/context2.jpg
+
+<h2>&emsp;&emsp;&emsp;Context</h2>
+</br>
+</br>
+</br>
+
+---
 
 ## Context
 
@@ -59,14 +58,14 @@ http://theimowski.com/
 * I'm not an expert
 
 ***
-'   - data-background : images/profit.jpg
-'   
-'   ## Profit
-'   </br>
-'   </br>
-'   </br>
-'   
-'   ---
+- data-background : images/profit.jpg
+
+## Profit
+</br>
+</br>
+</br>
+
+---
 
 ## Profit
 
@@ -80,6 +79,39 @@ http://theimowski.com/
     * other counters?
 * ? Mention full migration of IHS CMS that was hard to maintain
 
+---
+
+<div >
+    <img src="images/front_fc.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/front_mhrp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+</div>
+
+---
+
+<div >
+    <img src="images/front_mhco.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/front_mhbp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+</div>
+
+---
+
+<div >
+    <img src="images/front_mh2co.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/front_mh2et.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+</div>
+
+---
+
+### numbers
+
+* 3 IHS Domains
+    * Chemical
+    * Economics
+    * Energy
+* ~2.000 XSLT LOC
+* ~2.000 PDF Reports Generated
+* ~20.000 Pages of content
+
 ***
 - data-background : images/practice.jpg
 
@@ -88,6 +120,10 @@ http://theimowski.com/
 ' biggest pains?
 ' technical stuff
 ' for each pain -> solution
+
+---
+
+- data-background : images/explicit.jpg
 
 ---
 
@@ -109,7 +145,7 @@ Explicit = named templates but also functions.
 
 ---
 
-- data-background : images/complex_instructions.jpg
+- data-background : images/complex.jpg
 
 ---
 
@@ -392,6 +428,15 @@ Expected output
 
 ---
 
+## Practice
+
+### Pessimist: XSLT is Hard to diagnose
+### Optimist: With FP I hardly need to debug. Also I can profile
+
+---
+
+#### Debugging
+
     [lang=xml]
     <xsl:function name="my:debug">
       <xsl:param name="msg" />
@@ -428,28 +473,28 @@ Expected output
     [lang=xml]
     --- sku: 001
     discount:
-    price: <?attribute name="price" value="12.50"?>
+       price: <?attribute name="price" value="12.50"?>
     quantity: <?attribute name="quantity" value="2"?>
     --- sku: 002
-    discount: <discount xmlns:my="http://example.com" type="percent" sku="002" percent="30"/>
-    price: <?attribute name="price" value="10.00"?>
+    discount: <discount type="percent" sku="002" percent="30"/>
+       price: <?attribute name="price" value="10.00"?>
     quantity: <?attribute name="quantity" value="2"?>
     --- sku: 003
-    discount: <discount xmlns:my="http://example.com" type="XforY" sku="003" x="3" y="2"/>
+    discount: <discount type="XforY" sku="003" x="3" y="2"/>
     quantity: <?attribute name="quantity" value="3"?>
-    price: <?attribute name="price" value="35.00"?>
+       price: <?attribute name="price" value="35.00"?>
 
-
----
-
-## Practice
-
-### Pessimist: XSLT is Hard to diagnose
-### Optimist: With FP I hardly need to debug. Also I can profile
+' concurrent execution? always same permutation
 
 ---
 
-#### Debugging
+#### Profiling
+
+![profiling.png](images/profiling.png)
+
+---
+
+- data-background : images/tooling.jpg
 
 ---
 
@@ -460,19 +505,41 @@ Expected output
 
 ---
 
+![no higlight.png](images/no_highlight.png)
+
+---
+
+![higlight.png](images/highlight.png)
+
+---
+
+- data-background : images/property.jpg
+
+---
+
 ## Practice
 
 ### Saxon's monopoly
 ### Supplements for free-version processor
 
-* higher-order functions only in Saxon PE :(
+---
+
+#### Only in commercial Saxon Editions
+
+* schema-awareness
+* higher-order functions
+* streaming
+* various performance optimizations
+* more extension points
+
+http://www.saxonica.com/products/feature-matrix-9-6.xml
 
 ***
-'   - data-background : images/recap.jpg
-'   
-'   <h2 style="color: white">&nbsp;&nbsp;Recap</h2>
-'   
-'   ---
+- data-background : images/recap.jpg
+
+<h2 style="color: white">&nbsp;&nbsp;Recap</h2>
+
+---
 
 ## Recap
 
