@@ -57,6 +57,22 @@ http://theimowski.com/
 * Note that we didn't stick to the conventional approach
 * I'm not an expert
 
+---
+
+- data-background : images/firebird.jpg
+
+---
+
+- data-background : images/digitalpub.jpg
+
+---
+
+<div>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/dita-logo.jpg"/>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="8%" src="images/qxps.jpg"/>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/pdf.png"/>
+</div>
+
 ***
 - data-background : images/profit.jpg
 
@@ -64,20 +80,6 @@ http://theimowski.com/
 </br>
 </br>
 </br>
-
----
-
-## Profit
-
-* Boost the progress
-* Show examples of rendered PDF reports
-* Explain the complexity of transform by listing all possible rendition templates, layouts, options and modes
-* Present numbers: 
-    * lines of XSLT code, 
-    * total reports rendered in Phoenix, 
-    * total number of pages of all reports,
-    * other counters?
-* ? Mention full migration of IHS CMS that was hard to maintain
 
 ---
 
@@ -102,15 +104,50 @@ http://theimowski.com/
 
 ---
 
+## features
+
+* 7 different report templates
+* 1 or 2 column text flow
+* 8 different layout options for tables and charts
+* advanced page break manipulation
+* table break manipulation
+* facing pages option
+* suppressing specific objects and pages
+* table of contents configuration
+* support for large tables
+* more...
+
+---
+
+<div >
+    <img src="images/features_01.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/features_03.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+</div>
+
+---
+
+<div>
+    <img src="images/features_04_landscape.png" style="display: inline-block;vertical-align:middle" width="86%"/>
+</div>
+
+---
+
+<div >
+    <img src="images/features_05_fp.png" style="display: inline-block;vertical-align:middle" width="96%"/>
+</div>
+
+---
+
 ### numbers
 
 * 3 IHS Domains
-    * Chemical
+    * Chemical (successful migration)
     * Economics
     * Energy
 * ~2.000 XSLT LOC
 * ~2.000 PDF Reports Generated
 * ~20.000 Pages of content
+* Much more yet to come
 
 ***
 - data-background : images/practice.jpg
