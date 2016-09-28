@@ -30,11 +30,27 @@ http://theimowski.com/
 
 ---
 
-## Intent
+- data-background : images/dentist.jpg
 
-* We often express reluctance for specific technology, avoid it and try different solutions, while we could have used a dedicated tool (technology) in a proper manner to tackle the problem efficiently.
-* This is not supposed to be a strictly technical talk, but I'd also like to send a message that we should be more open and reach for right tools when needed.  
-* To do so I'd like to share our success story with XSLT in PDF component in Phoenix, plus show a couple of tips & tricks while working with XSLT.
+' We often express reluctance for specific technology, avoid it and try different solutions, while we could have used a dedicated tool (technology) in a proper manner to tackle the problem efficiently.
+
+---
+
+- data-background : images/horizon.jpg
+
+' This is not supposed to be a strictly technical talk, but I'd also like to send a message that we should be more open and reach for right tools when needed.  
+
+---
+
+- data-background : images/success.jpg
+
+' To do so I'd like to share our success story with XSLT in PDF component in Phoenix, plus show a couple of tips & tricks while working with XSLT.
+
+---
+
+- data-background : images/alone.jpg
+
+' I've deliberately chosen to present XSLT, to prove that you can do really cool stuff with even unfamous technologies
 
 ***
 - data-background : images/context2.jpg
@@ -46,32 +62,59 @@ http://theimowski.com/
 
 ---
 
-## Context
-
-* Show what we do in Phoenix project
-* Describe digital publishing and explain the importance of its automation in IHS
-* Present big picture of PDF publishing architecture in Phoenix
-* Highlight the XSLT building block in PDF rendition flow
-* Review the level of knowledge at the beginning of working on the transform
-* Share how the approach advanced while developing the transform
-* Note that we didn't stick to the conventional approach
-* I'm not an expert
-
----
-
 - data-background : images/firebird.jpg
+
+' Show what we do in Phoenix project
 
 ---
 
 - data-background : images/digitalpub.jpg
 
+' Describe digital publishing and explain the importance of its automation in IHS
+
 ---
 
 <div>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/dita-logo.jpg"/>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="8%" src="images/qxps.jpg"/>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/pdf.png"/>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="12%" src="images/qxp.jpg"/>
+    <span style="font-size:80px;vertical-align:bottom;">&nbsp;↘&nbsp;</span>
 </div>
+
+<div>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/dita-logo.jpg"/>
+    <span style="font-size:80px;color:red">&nbsp;→&nbsp;</span>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="12%" src="images/xml.png"/>
+    <span style="font-size:80px">&nbsp;→&nbsp;</span>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="8%" src="images/qxps.jpg"/>
+    <span style="font-size:80px">&nbsp;→&nbsp;</span>
+    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="18%" src="images/pdf.png"/>
+</div>
+
+' Present big picture of PDF publishing architecture in Phoenix
+' Highlight the XSLT building block in PDF rendition flow
+
+---
+
+- data-background : images/beginner.jpg
+
+' Review the level of knowledge at the beginning of working on the transform
+
+---
+
+- data-background : images/climbing.jpg
+
+' Share how the approach advanced while developing the transform
+
+---
+
+- data-background : images/unconventional.jpg
+
+' Note that we didn't stick to the conventional approach
+
+---
+
+- data-background : images/learning.jpg
+
+' I'm not an expert
 
 ***
 - data-background : images/profit.jpg
@@ -141,7 +184,7 @@ http://theimowski.com/
 ### numbers
 
 * 3 IHS Domains
-    * Chemical (successful migration)
+    * Chemical
     * Economics
     * Energy
 * ~2.000 XSLT LOC
@@ -149,14 +192,18 @@ http://theimowski.com/
 * ~20.000 Pages of content
 * Much more yet to come
 
+' Chemical - complete migration of a legacy CMS hard to maintain
+
 ***
 - data-background : images/practice.jpg
 
 ## Practice
 
-' biggest pains?
 ' technical stuff
-' for each pain -> solution
+' tips & tricks
+' biggest pains?
+' solutions to some of the pains
+' Utilize new xslt features
 
 ---
 
@@ -164,39 +211,35 @@ http://theimowski.com/
 
 ---
 
-## Practice
+### Implicit
 
-### Template matching conflicts
-### "Implicit vs explicit" processing
+![implicit](images/implicit.png)
 
-<small>
-Conventional approach is to define multiple templates matching a pattern and rely on "apply-templates" instruction.
-However when a transform gets bigger and bigger it's hard to reason about those templates directly.
-Specially when the schemes of transform's input and output differ a lot.
-In addition one might get template matching conflicts which are not always easy to resolve - priorities.
-Example - maybe just show and explain both approaches, not necessarily dive into complex examples.
-First show the implicit approach, explain potential pains, and then show explicit approach and how it solves those problems.
-Example domain - focus on transforming Dita XML to Modifier XML.
-Explicit = named templates but also functions.
-</small>
+' Conventional approach is to define multiple templates matching a pattern and rely on "apply-templates" instruction.
+' However when a transform gets bigger and bigger it's hard to reason about those templates directly.
+' Specially when the schemes of transform's input and output differ a lot.
+' In addition one might get template matching conflicts which are not always easy to resolve - priorities.
+
+---
+
+### Explicit
+
+![explicit](images/explicit.png)
 
 ---
 
 - data-background : images/complex.jpg
 
----
-
-### Pessimist: Complex instructions
-### Optimist: Functional stuff in new XSLT
-
-* XPath power
-* Utilize functions - come back to explicit processing
-* Static Typing capabilities
-* "Group by" capabilities - optionally
+' * Complex instructions
+' * functional stuff in new XSLT
+' * XPath power
+' * Utilize functions
+' * Static Typing capabilities
+' * ? "Group by" capabilities
 
 ---
 
-### XPath power
+### XPath
 #### Inovice sum
 
 Input
@@ -206,6 +249,7 @@ Input
       <product sku="001" price="12.50" quantity="2" />
       <product sku="002" price="10.00" quantity="2" />
       <product sku="003" price="35.00" quantity="3" />
+      ...
     </invoice>
 
 Expected output
@@ -240,6 +284,10 @@ Expected output
         </xsl:otherwise>
       </xsl:choose>
     </xsl:template>
+
+' not going to analyze this snippet
+' only need to know that recursion is used here
+' explain algorithm with C#
 
 ---
 
@@ -293,17 +341,20 @@ Expected output
 
 ---
 
-### XPath power
-#### XPath 3.1 features
+#### XPath features
 
 * expressions: conditional, quantified, logic, etc...
-* list bind
-* mapping - ! operator
-* filtering
-* aggregation functions
+* concise syntax
+* list collect
+* list map
+* list filter
+* functions
 * arrow operator
 * let bindings
-* function calls
+
+http://www.saxonica.com/documentation/index.html#!expressions
+
+' XPath is a language itself
 
 ---
 
@@ -368,27 +419,27 @@ Expected output
     <xsl:template match="/invoice">
       <xsl:copy-of select="my:maxByPrice(.)" />
     </xsl:template>
-    <xsl:function as="element(product)" name="my:maxPrice">
+    <xsl:function as="element(product)" name="my:maxByPrice">
       <xsl:param as="element(product)+" name="products" />
       <xsl:copy-of select="$products[@price = max($products/@price)]" />
     </xsl:function>
 
 Static Error
 
-    [lang=plaintext]
-    Static error in {my:maxByPrice(.)} in expression in
-    xsl:copy-of/@select on line 6 column 46 of static_typing.xslt:
-        XPST0017: Cannot find a matching 1-argument function 
-        named {http://example.com}maxByPrice()
+    [lang=text]
+    Static error at char 15 in xsl:copy-of/@select 
+    on line 6 column 46 of static_typing.xslt:
+        XPTY0004: Required item type of first argument 
+        of my:maxByPrice() is element(Q{}product);
+        supplied value has item type element(Q{}invoice)
+    Errors were reported during stylesheet compilation
 
 ---
 
 - data-background : images/tree.jpg
 
----
-
-### Pessimist: Terse XML syntax
-### Optimist: There are pros of XML syntax
+' Pessimist: Terse XML syntax
+' Optimist: There are pros of XML syntax
 
 ---
 
@@ -417,6 +468,8 @@ Expected output
 ### Applying discounts
 
     [lang=xml]
+    <!-- Declarative nature of XML -->
+    <!-- Return plain XML -->
     <xsl:variable as="element(discount)+" name="discounts">
       <discount type="percent" sku="002" percent="30" />
       <discount type="XforY" sku="003" x="3" y="2" />
@@ -431,9 +484,7 @@ Expected output
       <xsl:copy-of select="$products!my:applyDiscount(.) => sum()" />
     </xsl:function>
 
-
-* Declarative nature of XML
-* Return plain XML
+' refactor the code - pass discount to applyDiscount function?
 
 ---
 
@@ -463,26 +514,12 @@ Expected output
 
 - data-background : images/diagnostics.jpg
 
----
-
-## Practice
-
-### Pessimist: XSLT is Hard to diagnose
-### Optimist: With FP I hardly need to debug. Also I can profile
+' Pessimist: XSLT is Hard to diagnose
+' Optimist: With FP I hardly need to debug. Also I can profile
 
 ---
 
 #### Debugging
-
-    [lang=xml]
-    <xsl:function name="my:debug">
-      <xsl:param name="msg" />
-      <xsl:param name="x" />
-      <xsl:message><xsl:value-of select="concat($msg, ': ', $x)"/></xsl:message>
-      <xsl:copy-of select="$x" />
-    </xsl:function>
-    
----
 
     [lang=xml]
     <xsl:function as="xs:double" name="my:applyDiscount">
@@ -505,6 +542,18 @@ Expected output
             $price * $quantity" />
     </xsl:function>
 
+' red squares?
+
+---
+
+    [lang=xml]
+    <xsl:function name="my:debug">
+      <xsl:param name="msg" />
+      <xsl:param name="x" />
+      <xsl:message><xsl:value-of select="concat($msg, ': ', $x)"/></xsl:message>
+      <xsl:copy-of select="$x" />
+    </xsl:function>
+    
 ---
 
     [lang=xml]
@@ -533,12 +582,10 @@ Expected output
 
 - data-background : images/tooling.jpg
 
----
-
-## Practice
-
-### Poor tooling
-### Editor extensions?
+' Poor tooling
+' Rather nothing more than standard XML tooling
+' Use scripts for testing the transform
+' Editor extensions?
 
 ---
 
@@ -552,19 +599,15 @@ Expected output
 
 - data-background : images/property.jpg
 
----
-
-## Practice
-
-### Saxon's monopoly
-### Supplements for free-version processor
+' Saxon's monopoly
+' Supplements for free-version processor
 
 ---
 
 #### Only in commercial Saxon Editions
 
-* schema-awareness
 * higher-order functions
+* schema-awareness
 * streaming
 * various performance optimizations
 * more extension points
@@ -578,12 +621,22 @@ http://www.saxonica.com/products/feature-matrix-9-6.xml
 
 ---
 
-## Recap
+- data-background : images/tools.jpg
 
-* lessons learned
-* the very purpose of XSLT is to transform XML documents
-* One can handle XSLT to use it without big pain
-* It's not just about XSLT
-* We don't have to avoid unknown tools / technologies
-* We can discover interesting ways of using these tools to improve our process
-* In the end what really matters is the final result that has business value
+' lessons learned
+' the very purpose of XSLT is to transform XML documents
+' One can handle XSLT to use it without big pain
+' It's not just about XSLT
+
+---
+
+- data-background : images/discover.jpg
+
+' We don't have to avoid unknown tools / technologies
+' We can discover interesting ways of using these tools to improve our process
+
+---
+
+- data-background : images/goal.jpg
+
+' In the end what really matters is the final result that has business value

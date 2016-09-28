@@ -5,7 +5,7 @@ xmlns:my="http://example.com">
   <xsl:template match="/invoice">
     <xsl:copy-of select="my:maxByPrice(.)" />
   </xsl:template>
-  <xsl:function as="element(product)" name="my:maxPrice">
+  <xsl:function as="element(product)" name="my:maxByPrice">
     <xsl:param as="element(product)+" name="products" />
     <xsl:copy-of select="$products[@price = max($products/@price)]" />
   </xsl:function>
