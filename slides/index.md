@@ -28,6 +28,9 @@ http://theimowski.com/
 ## Intent
 </br>
 
+' Why I'm here talking XSLT
+' What I'd like you to get from this talk
+
 ---
 
 - data-background : images/dentist.jpg
@@ -50,7 +53,8 @@ http://theimowski.com/
 
 - data-background : images/alone.jpg
 
-' I've deliberately chosen to present XSLT, to prove that you can do really cool stuff with even unfamous technologies
+' Share the story about CFP for DevDay and "Come on, XSLT?"
+' I'm happy to talk about niche XSLT, to prove that you can do really cool stuff with even unfamous technologies
 
 ***
 - data-background : images/context2.jpg
@@ -60,16 +64,24 @@ http://theimowski.com/
 </br>
 </br>
 
+' What we do
+' What problem to solve
+' Why XSLT
+
 ---
 
 - data-background : images/firebird.jpg
 
+' IHS Markit big corporation providing information in various domains
+' IT dept primarily responsible for visualising and storing the information
+' Many CMS inside company
 ' Show what we do in Phoenix project
 
 ---
 
 - data-background : images/digitalpub.jpg
 
+' One of aspects in Phoenix is DP
 ' Describe digital publishing and explain the importance of its automation in IHS
 
 ---
@@ -91,24 +103,28 @@ http://theimowski.com/
 
 ' Present big picture of PDF publishing architecture in Phoenix
 ' Highlight the XSLT building block in PDF rendition flow
+' Mention Full auto and Semi auto layout
 
 ---
 
 - data-background : images/beginner.jpg
 
 ' Review the level of knowledge at the beginning of working on the transform
+' XSLT quickly
 
 ---
 
 - data-background : images/climbing.jpg
 
 ' Share how the approach advanced while developing the transform
+' Continuous delivery pipeline
 
 ---
 
 - data-background : images/unconventional.jpg
 
 ' Note that we didn't stick to the conventional approach
+' Influence of FP
 
 ---
 
@@ -123,6 +139,8 @@ http://theimowski.com/
 </br>
 </br>
 </br>
+
+' Results drive motivation
 
 ---
 
@@ -189,10 +207,13 @@ http://theimowski.com/
     * Energy
 * ~2.000 XSLT LOC
 * ~2.000 PDF Reports Generated
+    * 1 page long (smallest report)
+    * 300 pages long (largest report)
 * ~20.000 Pages of content
 * Much more yet to come
 
 ' Chemical - complete migration of a legacy CMS hard to maintain
+' Some of those reports cost a lot of money
 
 ***
 - data-background : images/practice.jpg
@@ -200,6 +221,7 @@ http://theimowski.com/
 ## Practice
 
 ' technical stuff
+' will be snippets - don't need to follow up
 ' tips & tricks
 ' biggest pains?
 ' solutions to some of the pains
@@ -375,6 +397,8 @@ Expected output
     [lang=xml]
     <product sku="003" price="35.00" quantity="3" />
 
+' refactor the example
+
 ---
 
 #### Finding most expensive product - named template
@@ -385,6 +409,7 @@ Expected output
           <xsl:with-param name="products" select="product" />
       </xsl:call-template>
     </xsl:template>
+
     <xsl:template name="maxByPrice">
       <xsl:param name="products" />
       <xsl:copy-of select="$products[@price = max($products/@price)]" />
@@ -398,6 +423,7 @@ Expected output
     <xsl:template match="/invoice">
       <xsl:copy-of select="my:maxByPrice(product)" />
     </xsl:template>
+    
     <xsl:function name="my:maxByPrice">
       <xsl:param name="products" />
       <xsl:copy-of select="$products[@price = max($products/@price)]" />
@@ -419,6 +445,7 @@ Expected output
     <xsl:template match="/invoice">
       <xsl:copy-of select="my:maxByPrice(.)" />
     </xsl:template>
+    
     <xsl:function as="element(product)" name="my:maxByPrice">
       <xsl:param as="element(product)+" name="products" />
       <xsl:copy-of select="$products[@price = max($products/@price)]" />
@@ -440,6 +467,7 @@ Static Error
 
 ' Pessimist: Terse XML syntax
 ' Optimist: There are pros of XML syntax
+' Mixing XPath code with XML syntax = more concise
 
 ---
 
@@ -467,48 +495,15 @@ Expected output
 
 ### Applying discounts
 
-    [lang=xml]
-    <!-- Declarative nature of XML -->
-    <!-- Return plain XML -->
-    <xsl:variable as="element(discount)+" name="discounts">
-      <discount type="percent" sku="002" percent="30" />
-      <discount type="XforY" sku="003" x="3" y="2" />
-    </xsl:variable>
+![declarative_xml.png](images/declarative_xml.png)
     
-    <xsl:template match="/invoice">
-      <xsl:copy-of select="my:applyDiscounts(product)" />
-    </xsl:template>
-    
-    <xsl:function as="xs:double" name="my:applyDiscounts">
-      <xsl:param as="element(product)+" name="products" />
-      <xsl:copy-of select="$products!my:applyDiscount(.) => sum()" />
-    </xsl:function>
-
-' refactor the code - pass discount to applyDiscount function?
-
 ---
 
 ### Applying discounts
 
-    [lang=xml]
-    <xsl:function as="xs:double" name="my:applyDiscount">
-      <xsl:param as="element(product)" name="product" /> 
-      <xsl:copy-of select="
-        let $discount := $discounts[@sku = $product/@sku],
-            $price    := $product/@price,
-            $quantity := $product/@quantity
-        return
-            if ($discount/@type = 'percent') then 
-                (100 - $discount/@percent) div 100 * $price * $quantity
-            else if ($discount/@type = 'XforY') then
-                let $discounted := $quantity div $discount/@x,
-                    $remaining  := $quantity mod $discount/@x
-                return
-                    $discounted * $price * $discount/@y + 
-                    $remaining  * $price
-            else
-                $price * $quantity" />
-    </xsl:function>
+![applydiscount.png](images/applydiscount.png)
+
+' Also good for returning bigger chunks of bare XML
 
 ---
 
@@ -521,56 +516,17 @@ Expected output
 
 #### Debugging
 
-    [lang=xml]
-    <xsl:function as="xs:double" name="my:applyDiscount">
-      <xsl:param as="element(product)" name="product" /> 
-      <xsl:message>--- sku: <xsl:value-of select="$product/@sku"/></xsl:message>
-      <xsl:copy-of select="
-        let $discount := my:debug('discount', $discounts[@sku = $product/@sku]),
-          $price    := my:debug('price', $product/@price),
-          $quantity := my:debug('quantity', $product/@quantity)
-        return
-          if ($discount/@type = 'percent') then 
-            (100 - $discount/@percent) div 100 * $price * $quantity
-          else if ($discount/@type = 'XforY') then
-            let $discounted := $quantity div $discount/@x,
-              $remaining  := $quantity mod $discount/@x
-            return
-              $discounted * $price * $discount/@y + 
-              $remaining  * $price
-          else
-            $price * $quantity" />
-    </xsl:function>
+![debugapplydiscount.png](images/debugapplydiscount.png)
 
 ' red squares?
 
 ---
 
-    [lang=xml]
-    <xsl:function name="my:debug">
-      <xsl:param name="msg" />
-      <xsl:param name="x" />
-      <xsl:message><xsl:value-of select="concat($msg, ': ', $x)"/></xsl:message>
-      <xsl:copy-of select="$x" />
-    </xsl:function>
-    
+![mydebug.png](images/mydebug.png)
+
 ---
 
-    [lang=xml]
-    --- sku: 001
-    discount:
-       price: <?attribute name="price" value="12.50"?>
-    quantity: <?attribute name="quantity" value="2"?>
-    --- sku: 002
-    discount: <discount type="percent" sku="002" percent="30"/>
-       price: <?attribute name="price" value="10.00"?>
-    quantity: <?attribute name="quantity" value="2"?>
-    --- sku: 003
-    discount: <discount type="XforY" sku="003" x="3" y="2"/>
-    quantity: <?attribute name="quantity" value="3"?>
-       price: <?attribute name="price" value="35.00"?>
-
-' concurrent execution? always same permutation
+![debugconsole.png](images/debugconsole.png)
 
 ---
 
@@ -583,6 +539,7 @@ Expected output
 - data-background : images/tooling.jpg
 
 ' Poor tooling
+' Oxygen XML Editor
 ' Rather nothing more than standard XML tooling
 ' Use scripts for testing the transform
 ' Editor extensions?
@@ -619,11 +576,12 @@ http://www.saxonica.com/products/feature-matrix-9-6.xml
 
 <h2 style="color: white">&nbsp;&nbsp;Recap</h2>
 
+' lessons learned
+
 ---
 
 - data-background : images/tools.jpg
 
-' lessons learned
 ' the very purpose of XSLT is to transform XML documents
 ' One can handle XSLT to use it without big pain
 ' It's not just about XSLT

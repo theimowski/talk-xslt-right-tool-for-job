@@ -2,6 +2,8 @@
 <xsl:stylesheet exclude-result-prefixes="xs" version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:my="http://example.com">
   <xsl:output encoding="UTF-8" indent="yes" method="xml" version="1.0"/>
 
+  <!-- declarative nature of XML -->
+  <!-- can use plain XML return values -->
   <xsl:variable as="element(discount)+" name="discounts">
     <discount sku="002" type="percent" percent="30" />
     <discount sku="003" type="XforY"   x="3" y="2" />
