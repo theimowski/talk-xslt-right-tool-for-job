@@ -264,48 +264,15 @@ http://theimowski.com/
 ### XPath
 #### Inovice sum
 
-Input
+![invoice.png](images/invoice.png)
 
-    [lang=xml]
-    <invoice>
-      <product sku="001" price="12.50" quantity="2" />
-      <product sku="002" price="10.00" quantity="2" />
-      <product sku="003" price="35.00" quantity="3" />
-      ...
-    </invoice>
-
-Expected output
-
-    [lang=xml]
-    150
+Expected sum: *150*
 
 ---
 
 #### Inovice sum - XSLT 1.0 with recursion
 
-    [lang=xml]
-    <xsl:template match="/invoice">
-      <xsl:call-template name="sum">
-        <xsl:with-param name="products" select="product" />
-      </xsl:call-template>
-    </xsl:template>
-    <xsl:template name="sum">
-      <xsl:param name="products" />
-      <xsl:param name="acc" select="0" />
-      <xsl:choose>
-        <xsl:when test="not($products)">
-          <xsl:value-of select="$acc" />
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="price" select="$products[1]/@price" />
-          <xsl:variable name="quantity" select="$products[1]/@quantity" />
-          <xsl:call-template name="sum">
-            <xsl:with-param name="products" select="$products[position() > 1]" />
-            <xsl:with-param name="acc" select="$acc + ($quantity * $price)" />
-          </xsl:call-template>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:template>
+![xslt1rec.png](images/xslt1rec.png)
 
 ' not going to analyze this snippet
 ' only need to know that recursion is used here
@@ -356,10 +323,7 @@ Expected output
 
 #### Inovice sum - XSLT 3.0 with XPath 3.1
 
-    [lang=xml]
-    <xsl:template match="/invoice">
-      <xsl:value-of select="product!(@price * @quantity) => sum()"/>
-    </xsl:template>
+![xslt3xpath.png](images/xslt3xpath.png)
 
 ---
 
@@ -380,54 +344,15 @@ http://www.saxonica.com/documentation/index.html#!expressions
 
 ---
 
-### Functions
-#### Finding most expensive product
+#### Formating richtext - named templates
 
-Input
-
-    [lang=xml]
-    <invoice>
-      <product sku="001" price="12.50" quantity="2" />
-      <product sku="002" price="10.00" quantity="2" />
-      <product sku="003" price="35.00" quantity="3" />
-    </invoice>
-
-Expected output
-
-    [lang=xml]
-    <product sku="003" price="35.00" quantity="3" />
-
-' refactor the example
+![lists_named_templ.png](images/lists_named_templ.png)
 
 ---
 
-#### Finding most expensive product - named template
+#### Formating richtext - functions
 
-    [lang=xml]
-    <xsl:template match="/invoice">
-      <xsl:call-template name="maxByPrice">
-          <xsl:with-param name="products" select="product" />
-      </xsl:call-template>
-    </xsl:template>
-
-    <xsl:template name="maxByPrice">
-      <xsl:param name="products" />
-      <xsl:copy-of select="$products[@price = max($products/@price)]" />
-    </xsl:template>
-
----
-
-#### Finding most expensive product - function
-
-    [lang=xml]
-    <xsl:template match="/invoice">
-      <xsl:copy-of select="my:maxByPrice(product)" />
-    </xsl:template>
-    
-    <xsl:function name="my:maxByPrice">
-      <xsl:param name="products" />
-      <xsl:copy-of select="$products[@price = max($products/@price)]" />
-    </xsl:function>
+![lists_fun.png](images/lists_fun.png)
 
 ---
 
@@ -441,25 +366,9 @@ Expected output
 
 ### Static Typing
 
-    [lang=xml]
-    <xsl:template match="/invoice">
-      <xsl:copy-of select="my:maxByPrice(.)" />
-    </xsl:template>
-    
-    <xsl:function as="element(product)" name="my:maxByPrice">
-      <xsl:param as="element(product)+" name="products" />
-      <xsl:copy-of select="$products[@price = max($products/@price)]" />
-    </xsl:function>
+![static_typing_mistake.png](images/static_typing_mistake.png)
 
-Static Error
-
-    [lang=text]
-    Static error at char 15 in xsl:copy-of/@select 
-    on line 6 column 46 of static_typing.xslt:
-        XPTY0004: Required item type of first argument 
-        of my:maxByPrice() is element(Q{}product);
-        supplied value has item type element(Q{}invoice)
-    Errors were reported during stylesheet compilation
+![static_typing_error.png](images/static_typing_error.png)
 
 ---
 
@@ -474,22 +383,11 @@ Static Error
 ### XML syntax
 #### Applying discounts
 
-Input
-
-    [lang=xml]
-    <invoice>
-      <product sku="001" price="12.50" quantity="2" />
-      <product sku="002" price="10.00" quantity="2" />
-      <product sku="003" price="35.00" quantity="3" />
-    </invoice>
+![invoice.png](images/invoice.png)
 
 * Get 30% discount for product with "002" sku
 * Buy 3 for 2 products with "003" sku
-
-Expected output
-
-    [lang=xml]
-    109
+* Expected sum after discounts: *109*
 
 ---
 
@@ -546,11 +444,11 @@ Expected output
 
 ---
 
-![no higlight.png](images/no_highlight.png)
+![higlight.png](images/highlight.png)
 
 ---
 
-![higlight.png](images/highlight.png)
+![no higlight.png](images/no_highlight.png)
 
 ---
 
