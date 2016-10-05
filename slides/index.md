@@ -9,18 +9,29 @@
 
 
 # XSLT
-### Use the Right Tool for the Job
 
 </br>
 </br>
 </br>
 </br>
+</br>
+
+### Use the Right Tool for the Job
+
+
+---
+
+<img src="images/me.png" width="30%"/>
+
+### Tomasz Heimowski
 
 http://theimowski.com/
 
 @theimowski
 
 ![ihsmarkit](images/ihsmarkit.svg)
+
+' boast about FP, F#, OSS, GitBook?
 
 ***
 - data-background : images/intent.jpeg
@@ -35,7 +46,10 @@ http://theimowski.com/
 
 - data-background : images/dentist.jpg
 
+' In my short carreer I've managed to spot
+' 2 contrary (negative) attitudes: cool tech kids vs comfort zone 
 ' We often express reluctance for specific technology, avoid it and try different solutions, while we could have used a dedicated tool (technology) in a proper manner to tackle the problem efficiently.
+' We avoid leaving comfort zone just as we avoid the dentists
 
 ---
 
@@ -55,6 +69,7 @@ http://theimowski.com/
 
 ' Share the story about CFP for DevDay and "Come on, XSLT?"
 ' I'm happy to talk about niche XSLT, to prove that you can do really cool stuff with even unfamous technologies
+' Interesting task, XSLT challenging and requires different thinking
 
 ***
 - data-background : images/context2.jpg
@@ -76,30 +91,18 @@ http://theimowski.com/
 ' IT dept primarily responsible for visualising and storing the information
 ' Many CMS inside company
 ' Show what we do in Phoenix project
+' Phoenix to replace MANY (not all!) CMS in IHS Markit
 
 ---
 
 - data-background : images/digitalpub.jpg
 
 ' One of aspects in Phoenix is DP
-' Describe digital publishing and explain the importance of its automation in IHS
+' Describe digital publishing and explain the importance of its automation in IHS Markit
 
 ---
 
-<div>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="12%" src="images/qxp.jpg"/>
-    <span style="font-size:80px;vertical-align:bottom;">&nbsp;↘&nbsp;</span>
-</div>
-
-<div>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="24%" src="images/dita-logo.jpg"/>
-    <span style="font-size:80px;color:red">&nbsp;→&nbsp;</span>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="12%" src="images/xml.png"/>
-    <span style="font-size:80px">&nbsp;→&nbsp;</span>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="8%" src="images/qxps.jpg"/>
-    <span style="font-size:80px">&nbsp;→&nbsp;</span>
-    <img  style="display: inline-block;vertical-align:middle;border:none;box-shadow:none" width="18%" src="images/pdf.png"/>
-</div>
+- data-background : images/bigpicture.png
 
 ' Present big picture of PDF publishing architecture in Phoenix
 ' Highlight the XSLT building block in PDF rendition flow
@@ -117,7 +120,9 @@ http://theimowski.com/
 - data-background : images/climbing.jpg
 
 ' Share how the approach advanced while developing the transform
-' Continuous delivery pipeline
+' Functional Programming influenced the approach
+' Continuous delivery pipeline - how many deployments, fast feedback loop, F# scripts, going forward without rolling back
+' Continuous delivery demo
 
 ---
 
@@ -144,54 +149,105 @@ http://theimowski.com/
 
 ---
 
+#### Template: Full Cover
+
+<img src="images/front_fc.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+
+---
+
+#### Template: Masthead with Right pane
+
+<img src="images/front_mhrp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+
+---
+
+#### Template: Masthead with 3 contacts
+
+<img src="images/front_mhco.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+
+---
+
+#### Template: Masthead with 8 contacts
+
+<img src="images/front_mhbp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+
+---
+
+#### Template: Masthead for specific brand
+
+
+<img src="images/front_mh2et.png" style="display: inline-block;vertical-align:middle" width="100%"/>
+
+---
+
+#### ??? Template: Masthead with 2 columns
+
+<img src="images/front_mh2co.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+
+---
+
+#### Columns: 1 column text flow
+
+<img src="images/1col.png" style="display: inline-block;vertical-align:middle" />
+
+
+---
+
+#### Columns: 2 columns text flow
+
+<img src="images/2col.png" style="display: inline-block;vertical-align:middle"/>
+
+---
+
+#### Charts & tables layout: aligned Left
+
+---
+
+#### Charts & tables layout: Centered
+
 <div >
-    <img src="images/front_fc.png" style="display: inline-block;vertical-align:middle" width="48%"/>
-    <img src="images/front_mhrp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/centered_1.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/centered_2.png" style="display: inline-block;vertical-align:middle" width="48%"/>
 </div>
 
 ---
 
+#### Charts & tables layout: aligned Right
+
 <div >
-    <img src="images/front_mhco.png" style="display: inline-block;vertical-align:middle" width="48%"/>
-    <img src="images/front_mhbp.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/right_align_1.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/right_align_2.png" style="display: inline-block;vertical-align:middle" width="48%"/>
 </div>
 
 ---
 
+#### Charts & tables layout: Grouped
+
 <div >
-    <img src="images/front_mh2co.png" style="display: inline-block;vertical-align:middle" width="48%"/>
-    <img src="images/front_mh2et.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/grouped_1.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/grouped_2.png" style="display: inline-block;vertical-align:middle" width="48%"/>
 </div>
 
 ---
 
-## features
-
-* 7 different report templates
-* 1 or 2 column text flow
-* 8 different layout options for tables and charts
-* advanced page break manipulation
-* table break manipulation
-* facing pages option
-* suppressing specific objects and pages
-* table of contents configuration
-* support for large tables
-* more...
-
----
+#### Charts & tables layout: Full width
 
 <div >
-    <img src="images/features_01.png" style="display: inline-block;vertical-align:middle" width="48%"/>
-    <img src="images/features_03.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/full_width_1.png" style="display: inline-block;vertical-align:middle" width="48%"/>
+    <img src="images/full_width_2.png" style="display: inline-block;vertical-align:middle" width="48%"/>
 </div>
 
 ---
+
+#### Charts & tables layout: Landscape
 
 <div>
-    <img src="images/features_04_landscape.png" style="display: inline-block;vertical-align:middle" width="86%"/>
+    <img src="images/features_04_landscape.png" style="display: inline-block;vertical-align:middle" width="80%"/>
 </div>
 
 ---
+
+#### Running heads: facing pages
 
 <div >
     <img src="images/features_05_fp.png" style="display: inline-block;vertical-align:middle" width="96%"/>
@@ -199,9 +255,21 @@ http://theimowski.com/
 
 ---
 
+## More features...
+
+* advanced page break manipulation
+* table break manipulation
+* facing pages option
+* suppressing specific objects and pages
+* table of contents configuration
+* support for large tables
+* etc...
+
+---
+
 ### numbers
 
-* 3 IHS Domains
+* 3 IHS Markit Domains
     * Chemical
     * Economics
     * Energy
@@ -226,10 +294,6 @@ http://theimowski.com/
 ' biggest pains?
 ' solutions to some of the pains
 ' Utilize new xslt features
-
----
-
-- data-background : images/explicit.jpg
 
 ---
 
@@ -282,42 +346,13 @@ Expected sum: *150*
 
 #### Inovice sum - C# with recursion
 
-    [lang=csharp]
-    public static string Transform(XDocument xdoc)
-    {
-        return Sum(xdoc.Root.Elements("product"));
-    }
-
-    private static string Sum(IEnumerable<XElement> elements, decimal acc = 0)
-    {
-        if (elements.Any() == false)
-        {
-            return acc.ToString();
-        }
-        else
-        {
-            var product = elements.ElementAt(0);
-            var price = decimal.Parse(product.Attribute("price").Value);
-            var quantity = decimal.Parse(product.Attribute("quantity").Value);
-            return Sum(elements.Skip(1), acc + price*quantity);
-        }
-    }
+![csharprec.png](images/csharprec.png)
 
 ---
 
 #### Invoice sum - C# LINQ expression
 
-    [lang=csharp]
-    public static string Transform(XDocument xdoc)
-    {
-        return
-            xdoc.Root.Elements("product")
-                .Select(product => 
-                            decimal.Parse(product.Attribute("price").Value) * 
-                            decimal.Parse(product.Attribute("quantity").Value))
-                .Sum()
-                .ToString();
-    }
+![csharplinq.png](images/csharplinq.png)
 
 ---
 
@@ -344,13 +379,13 @@ http://www.saxonica.com/documentation/index.html#!expressions
 
 ---
 
-#### Formating richtext - named templates
+#### Formatting richtext - named templates
 
 ![lists_named_templ.png](images/lists_named_templ.png)
 
 ---
 
-#### Formating richtext - functions
+#### Formatting richtext - functions
 
 ![lists_fun.png](images/lists_fun.png)
 
@@ -439,6 +474,7 @@ http://www.saxonica.com/documentation/index.html#!expressions
 ' Poor tooling
 ' Oxygen XML Editor
 ' Rather nothing more than standard XML tooling
+' tooling might not be crucial - code is not so terse anymore
 ' Use scripts for testing the transform
 ' Editor extensions?
 
@@ -486,7 +522,7 @@ http://www.saxonica.com/products/feature-matrix-9-6.xml
 
 ---
 
-- data-background : images/discover.jpg
+- data-background : images/stars.jpg
 
 ' We don't have to avoid unknown tools / technologies
 ' We can discover interesting ways of using these tools to improve our process

@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<body>
-    <ol>
-        <richtext xmlns:my="http://example.com" bold="false" italics="true">ordered: 1</richtext>
-        <richtext xmlns:my="http://example.com" bold="false" italics="true">ordered: 2</richtext>
-        <richtext xmlns:my="http://example.com" bold="false" italics="true">ordered: 3</richtext>
-    </ol>
-    <ul>
-        <richtext xmlns:my="http://example.com" bold="true" italics="false">unordered: b</richtext>
-        <richtext xmlns:my="http://example.com" bold="true" italics="false">unordered: b</richtext>
-        <richtext xmlns:my="http://example.com" bold="true" italics="false">unordered: b</richtext>
-    </ul>
-</body>
+<?xml version="1.0" encoding="UTF-8"?>109
