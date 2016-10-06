@@ -74,6 +74,13 @@ Who writes XSLT regularly?<br/>
 boast about FP, F#, OSS, GitBook?<br/>
 </aside>
 </section>
+<section >
+<h2>What is XSLT?</h2>
+<ul>
+<li>eXtensible Stylesheet Language Transformations</li>
+<li>Domain Specific Language for processing XML</li>
+</ul>
+</section>
 </section>
 <section >
 <section data-background="images/intent.jpeg">
@@ -108,6 +115,7 @@ To do so I'd like to share our success story with XSLT in PDF component in Phoen
 Share the story about CFP for DevDay and "Come on, XSLT?"<br/>
 I'm happy to talk about niche XSLT, to prove that you can do really cool stuff with even unfamous technologies<br/>
 Interesting task, XSLT challenging and requires different thinking<br/>
+Czemu mówię o XSLT - bo funkcyjne języki mnie interesowały<br/>
 </aside>
 </section>
 </section>
@@ -138,57 +146,6 @@ to UNIFY Authoring Experience <br/>
 One of most important aspects in Phoenix is Digital (Electronic) Publishing<br/>
 Two channels, focus on PDF<br/>
 Describe digital publishing and explain the importance of its AUTOMATION in IHS Markit<br/>
-</aside>
-</section>
-<section data-background="images/bigpicture.png">
-<aside class="notes">
-Present big picture of PDF publishing architecture in Phoenix<br/>
-Highlight the XSLT building block in PDF rendition flow<br/>
-Mention Full auto and SEMI AUTO layout<br/>
-</aside>
-</section>
-<section data-background="images/beginner.jpg">
-<aside class="notes">
-Review the level of knowledge at the beginning of working on the transform<br/>
-Challenge accepted<br/>
-</aside>
-</section>
-<section >
-<h2>XSLT Quickly</h2>
-<p><img src="images/xslt_quickly.jpg" alt="xslt_quickly.jpg" /></p>
-<p><a href="https://amzn.com/1930110111">https://amzn.com/1930110111</a></p>
-<h4>based on xslt 1.0 !</h4>
-</section>
-<section data-background="images/climbing.jpg">
-<aside class="notes">
-Share how the approach advanced while developing the transform<br/>
-Start with XSLT 1.0, then moved iteratively to 2.0<br/>
-Functional Programming influenced the approach<br/>
-Continuous delivery pipeline - how many deployments, fast feedback loop, F# scripts, going forward without rolling back<br/>
-Continuous delivery demo<br/>
-</aside>
-</section>
-<section data-background-video="images/capture.wmv">
-<h2>PDF Diff DEmo</h2>
-<p><a href="https://vslavik.github.io/diff-pdf/">https://vslavik.github.io/diff-pdf/</a></p>
-</section>
-<section data-background="images/learning.jpg">
-<aside class="notes">
-I'm not an expert<br/>
-Many other smart people<br/>
-I'm still learning<br/>
-But this experience lets me share a few XSLT tips<br/>
-</aside>
-</section>
-</section>
-<section >
-<section data-background="images/profit.jpg">
-<h2>Profit</h2>
-</br>
-</br>
-</br>
-<aside class="notes">
-Results drive motivation<br/>
 </aside>
 </section>
 <section >
@@ -271,13 +228,8 @@ Results drive motivation<br/>
 </div>
 </section>
 <section >
-<h2>and many more features...</h2>
-<p><img src="images/report-level-attrs.png" alt="report-level-attrs.png" /></p>
-</section>
-<section >
 <h3>numbers</h3>
 <ul>
-<li>~2.000 XSLT LOC</li>
 <li>
 3 IHS Markit Domains
 <ul>
@@ -299,6 +251,46 @@ Results drive motivation<br/>
 <aside class="notes">
 Chemical - complete migration of a legacy CMS hard to maintain<br/>
 Some of those reports cost a lot of money<br/>
+</aside>
+</section>
+<section data-transition="zoom" data-transition-speed="slow">
+<h1>~2.000 XSLT LOC</h1>
+<p>LOC = Lines of Code</p>
+</section>
+<section data-background="images/bigpicture.png">
+<aside class="notes">
+Present big picture of PDF publishing architecture in Phoenix<br/>
+Highlight the XSLT building block in PDF rendition flow<br/>
+Jeszcze bardziej zwrócić uwagę na XSLT w big picture<br/>
+Mention Full auto and SEMI AUTO layout<br/>
+</aside>
+</section>
+<section data-background="images/beginner.jpg">
+<aside class="notes">
+Review the level of knowledge at the beginning of working on the transform<br/>
+Challenge accepted<br/>
+</aside>
+</section>
+<section >
+<h2>XSLT Quickly</h2>
+<p><img src="images/xslt_quickly.jpg" alt="xslt_quickly.jpg" /></p>
+<p><a href="https://amzn.com/1930110111">https://amzn.com/1930110111</a></p>
+<h4>based on xslt 1.0 !</h4>
+</section>
+<section data-background="images/climbing.jpg">
+<aside class="notes">
+Share how the approach advanced while developing the transform<br/>
+Start with XSLT 1.0, then moved iteratively to 2.0<br/>
+Functional Programming influenced the approach<br/>
+Continuous delivery pipeline - how many deployments, fast feedback loop, F# scripts, going forward without rolling back<br/>
+</aside>
+</section>
+<section data-background="images/learning.jpg">
+<aside class="notes">
+I'm not an expert<br/>
+Many other smart people<br/>
+I'm still learning<br/>
+But this experience lets me share a few XSLT tips<br/>
 </aside>
 </section>
 </section>
@@ -350,6 +342,9 @@ In addition one might get template matching conflicts which are not always easy 
 <h4>Inovice sum</h4>
 <p><img src="images/invoice.png" alt="invoice.png" /></p>
 <p>Expected sum: <em>150</em></p>
+<aside class="notes">
+przykłady - powedzieć czemu inna domena / faktura?<br/>
+</aside>
 </section>
 <section >
 <h4>Inovice sum - XSLT 1.0 with recursion</h4>
@@ -360,13 +355,23 @@ only need to know that recursion is used here<br/>
 explain algorithm with C#<br/>
 </aside>
 </section>
-<section >
-<h4>Inovice sum - C# with recursion</h4>
-<p><img src="images/csharprec.png" alt="csharprec.png" /></p>
+<section data-background="images/csharprec.png" data-background-size="contain">
+<aside class="notes">
+<h4>Inovice sum - C# with recursion<br/></h4>
+</aside>
+<aside class="notes">
+![csharprec.png](images/csharprec.png)<br/>
+</aside>
+<aside class="notes">
+<img src="images/csharprec.png" width="150%"/><br/>
+</aside>
 </section>
-<section >
-<h4>Invoice sum - C# LINQ expression</h4>
-<p><img src="images/csharplinq.png" alt="csharplinq.png" /></p>
+<section data-background="images/csharplinq.png" data-background-size="contain">
+<aside class="notes">
+<h4>Invoice sum - C# LINQ expression<br/></h4>
+<br/>
+![csharplinq.png](images/csharplinq.png)<br/>
+</aside>
 </section>
 <section >
 <h4>Inovice sum - XSLT 3.0 with XPath 3.1</h4>
@@ -472,10 +477,10 @@ Editor extensions?<br/>
 </aside>
 </section>
 <section >
-<p><img src="images/highlight.png" alt="higlight.png" /></p>
+<p><img src="images/no_highlight.png" alt="no higlight.png" /></p>
 </section>
 <section >
-<p><img src="images/no_highlight.png" alt="no higlight.png" /></p>
+<p><img src="images/highlight.png" alt="higlight.png" /></p>
 </section>
 <section data-background="images/property.jpg">
 <aside class="notes">
@@ -511,6 +516,9 @@ It's not just about XSLT<br/>
 </section>
 <section data-background="images/stars.jpg">
 <aside class="notes">
+właściwy tool <br/>
+warto wyjść poza comfort zone<br/>
+inne paradygmaty pomagają rozwiązywać problemy<br/>
 We don't have to avoid unknown tools / technologies<br/>
 We can discover interesting ways of using these tools to improve our process<br/>
 </aside>
