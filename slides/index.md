@@ -36,6 +36,13 @@ http://theimowski.com/
 
 ' boast about FP, F#, OSS, GitBook?
 
+---
+
+## What is XSLT?
+
+* eXtensible Stylesheet Language Transformations
+* Domain Specific Language for processing XML
+
 ***
 - data-background : images/intent.jpeg
 
@@ -74,6 +81,7 @@ http://theimowski.com/
 ' Share the story about CFP for DevDay and "Come on, XSLT?"
 ' I'm happy to talk about niche XSLT, to prove that you can do really cool stuff with even unfamous technologies
 ' Interesting task, XSLT challenging and requires different thinking
+' Czemu mówię o XSLT - bo funkcyjne języki mnie interesowały
 
 ***
 - data-background : images/context2.jpg
@@ -105,73 +113,6 @@ http://theimowski.com/
 ' One of most important aspects in Phoenix is Digital (Electronic) Publishing
 ' Two channels, focus on PDF
 ' Describe digital publishing and explain the importance of its AUTOMATION in IHS Markit
-
----
-
-- data-background : images/bigpicture.png
-
-' Present big picture of PDF publishing architecture in Phoenix
-' Highlight the XSLT building block in PDF rendition flow
-' Mention Full auto and SEMI AUTO layout
-
----
-
-- data-background : images/beginner.jpg
-
-' Review the level of knowledge at the beginning of working on the transform
-' Challenge accepted
-
----
-
-## XSLT Quickly
-
-![xslt_quickly.jpg](images/xslt_quickly.jpg)
-
-https://amzn.com/1930110111
-
-#### based on xslt 1.0 !
-
----
-
-- data-background : images/climbing.jpg
-
-' Share how the approach advanced while developing the transform
-' Start with XSLT 1.0, then moved iteratively to 2.0
-' Functional Programming influenced the approach
-' Continuous delivery pipeline - how many deployments, fast feedback loop, F# scripts, going forward without rolling back
-' Continuous delivery demo
-
----
-
-- data-background-video : images/capture.wmv
-
-## PDF Diff DEmo
-
----
-
-- data-background : images/unconventional.jpg
-
-' Note that we didn't stick to the conventional approach
-' Influence of FP
-
----
-
-- data-background : images/learning.jpg
-
-' I'm not an expert
-' Many other smart people
-' I'm still learning
-' But this experience lets me share a few XSLT tips
-
-***
-- data-background : images/profit.jpg
-
-## Profit
-</br>
-</br>
-</br>
-
-' Results drive motivation
 
 ---
 
@@ -286,15 +227,8 @@ https://amzn.com/1930110111
 
 ---
 
-## and many more features...
-
-![report-level-attrs.png](images/report-level-attrs.png)
-
----
-
 ### numbers
 
-* ~2.000 XSLT LOC
 * 3 IHS Markit Domains
     * Chemical
     * Economics
@@ -308,6 +242,60 @@ https://amzn.com/1930110111
 ' Chemical - complete migration of a legacy CMS hard to maintain
 ' Some of those reports cost a lot of money
 
+---
+
+- data-transition : zoom
+- data-transition-speed : slow
+
+# ~2.000 XSLT LOC
+
+LOC = Lines of Code
+
+---
+
+- data-background : images/bigpicture.png
+
+' Present big picture of PDF publishing architecture in Phoenix
+' Highlight the XSLT building block in PDF rendition flow
+' Jeszcze bardziej zwrócić uwagę na XSLT w big picture
+' Mention Full auto and SEMI AUTO layout
+
+---
+
+- data-background : images/beginner.jpg
+
+' Review the level of knowledge at the beginning of working on the transform
+' Challenge accepted
+
+---
+
+## XSLT Quickly
+
+![xslt_quickly.jpg](images/xslt_quickly.jpg)
+
+https://amzn.com/1930110111
+
+#### based on xslt 1.0 !
+
+---
+
+- data-background : images/climbing.jpg
+
+' Share how the approach advanced while developing the transform
+' Start with XSLT 1.0, then moved iteratively to 2.0
+' Functional Programming influenced the approach
+' Continuous delivery pipeline - how many deployments, fast feedback loop, F# scripts, going forward without rolling back
+
+---
+
+- data-background : images/learning.jpg
+
+' I'm not an expert
+' Many other smart people
+' I'm still learning
+' But this experience lets me share a few XSLT tips
+
+
 ***
 - data-background : images/practice.jpg
 
@@ -319,6 +307,13 @@ https://amzn.com/1930110111
 ' biggest pains?
 ' solutions to some of the pains
 ' Main theme: Utilize new xslt features, think functional
+
+---
+
+- data-background : images/unconventional.jpg
+
+' Note that we didn't stick to the conventional approach
+' Influence of FP
 
 ---
 
@@ -358,6 +353,8 @@ https://amzn.com/1930110111
 
 Expected sum: *150*
 
+' przykłady - powedzieć czemu inna domena / faktura?
+
 ---
 
 #### Inovice sum - XSLT 1.0 with recursion
@@ -370,15 +367,24 @@ Expected sum: *150*
 
 ---
 
-#### Inovice sum - C# with recursion
+- data-background : images/csharprec.png
+- data-background-size : contain
 
-![csharprec.png](images/csharprec.png)
+' #### Inovice sum - C# with recursion
+
+' ![csharprec.png](images/csharprec.png)
+
+' <img src="images/csharprec.png" width="150%"/>
 
 ---
 
-#### Invoice sum - C# LINQ expression
+- data-background : images/csharplinq.png
+- data-background-size : contain
 
-![csharplinq.png](images/csharplinq.png)
+
+' #### Invoice sum - C# LINQ expression
+' 
+' ![csharplinq.png](images/csharplinq.png)
 
 ---
 
@@ -506,11 +512,11 @@ http://www.saxonica.com/documentation/index.html#!expressions
 
 ---
 
-![higlight.png](images/highlight.png)
+![no higlight.png](images/no_highlight.png)
 
 ---
 
-![no higlight.png](images/no_highlight.png)
+![higlight.png](images/highlight.png)
 
 ---
 
@@ -550,6 +556,9 @@ http://www.saxonica.com/products/feature-matrix-9-6.xml
 
 - data-background : images/stars.jpg
 
+' właściwy tool 
+' warto wyjść poza comfort zone
+' inne paradygmaty pomagają rozwiązywać problemy
 ' We don't have to avoid unknown tools / technologies
 ' We can discover interesting ways of using these tools to improve our process
 
